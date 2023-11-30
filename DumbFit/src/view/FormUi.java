@@ -82,10 +82,11 @@ public static JTable tableClii;
         acessButton = new javax.swing.JButton();
         idNivel = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        btnnovo = new javax.swing.JButton();
         textSenha = new javax.swing.JPasswordField();
-        buttonConfirm1 = new javax.swing.JButton();
+        buscarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        excluirButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCli = new javax.swing.JTable();
 
@@ -130,35 +131,51 @@ public static JTable tableClii;
         jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("Senha");
 
-        btnnovo.setText("Excluir");
-        btnnovo.addMouseListener(new java.awt.event.MouseAdapter() {
+        buscarButton.setBackground(new java.awt.Color(255, 204, 0));
+        buscarButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buscarButton.setText("BUSCAR");
+        buscarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnnovoMouseClicked(evt);
+                buscarButtonMouseClicked(evt);
             }
         });
-        btnnovo.addActionListener(new java.awt.event.ActionListener() {
+        buscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnovoActionPerformed(evt);
-            }
-        });
-
-        buttonConfirm1.setBackground(new java.awt.Color(255, 204, 0));
-        buttonConfirm1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonConfirm1.setText("ACESSAR");
-        buttonConfirm1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonConfirm1MouseClicked(evt);
-            }
-        });
-        buttonConfirm1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonConfirm1ActionPerformed(evt);
+                buscarButtonActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setText("Cadastro");
+
+        excluirButton.setBackground(new java.awt.Color(255, 204, 0));
+        excluirButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        excluirButton.setText("EXCLUIR");
+        excluirButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excluirButtonMouseClicked(evt);
+            }
+        });
+        excluirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirButtonActionPerformed(evt);
+            }
+        });
+
+        editButton.setBackground(new java.awt.Color(255, 204, 0));
+        editButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editButton.setText("EDITAR");
+        editButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editButtonMouseClicked(evt);
+            }
+        });
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,8 +191,7 @@ public static JTable tableClii;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -196,8 +212,10 @@ public static JTable tableClii;
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(idNivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(acessButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(buttonConfirm1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(excluirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(acessButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(editButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(53, 53, 53))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -205,10 +223,8 @@ public static JTable tableClii;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnnovo)
-                    .addComponent(jLabel2))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idNivel)
@@ -216,26 +232,34 @@ public static JTable tableClii;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(acessButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(acessButton))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(editButton))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonConfirm1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(excluirButton)))
+                .addGap(30, 30, 30))
         );
 
         tableCli.setModel(new javax.swing.table.DefaultTableModel(
@@ -272,7 +296,7 @@ public static JTable tableClii;
     }//GEN-LAST:event_acessButtonActionPerformed
 
     private void acessButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acessButtonMouseClicked
-        // TODO add your handling code here:
+
         DefaultTableModel MdlTableCli = (DefaultTableModel) this.tableCli.getModel();
         Object[] linhas = {this.textCpf.getText(),
                            this.textNome.getText(),
@@ -301,24 +325,65 @@ public static JTable tableClii;
         this.textCpf.grabFocus();
     }//GEN-LAST:event_acessButtonMouseClicked
 
-    private void btnnovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnovoMouseClicked
+    private void buscarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarButtonMouseClicked
+                Usuario obj = new Usuario();
+                obj.setCpf(this.textCpf.getText());
+                UsuarioDao u1 = new UsuarioDao();
+     
+        ResultSet resul = u1.buscar(obj);
+        try { if (resul.next()) {
+        // se o registro foi encontrado preenche os campos do formulário usuários
+        this.textNome.setText(resul.getString("nome"));
+        this.textEmail.setText(resul.getString("email"));
+        this.textTelefone.setText(resul.getString("telefone"));
+        this.textSenha.setText(resul.getString("senha"));
+        } else {
+        JOptionPane.showMessageDialog(null, "Registro não encontrado!");
+        this.textCpf.grabFocus(); }
+        } catch (SQLException err) {JOptionPane.showMessageDialog(null, err.getMessage() ); }
+    }//GEN-LAST:event_buscarButtonMouseClicked
 
+    private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
+    
+    }//GEN-LAST:event_buscarButtonActionPerformed
 
-    }//GEN-LAST:event_btnnovoMouseClicked
+    private void excluirButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excluirButtonMouseClicked
+    UsuarioDao u = new UsuarioDao();
+    u.excluir ( textCpf.getText() );
+    try {
+        this.atualizarTabela();
+    } catch (SQLException ex) {
+        Logger.getLogger(FormUi.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_excluirButtonMouseClicked
 
-    private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnnovoActionPerformed
+    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirButtonActionPerformed
+    
+    }//GEN-LAST:event_excluirButtonActionPerformed
 
-    private void buttonConfirm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonConfirm1MouseClicked
-        EnterUi acesso = new EnterUi();
-        acesso.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_buttonConfirm1MouseClicked
+    private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButtonMouseClicked
+        Usuario Lu = new Usuario();
+      
+        Lu.setCpf(this.textCpf.getText());
+        Lu.setNome(this.textNome.getText());
+        Lu.setEmail(this.textEmail.getText());
+        Lu.setTelefone(this.textTelefone.getText());
+        Lu.setIdNivel((String) this.idNivel.getSelectedItem());
+        Lu.setSenha(this.textSenha.getText());
+        UsuarioDao u1 = new UsuarioDao();
 
-    private void buttonConfirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirm1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonConfirm1ActionPerformed
+        ResultSet resul = u1.buscar(Lu);
+        try { if ( resul.next() ) { 
+        u1.alterar(Lu);
+        } else {
+        u1.incluir(Lu);
+        } } catch (SQLException err) { JOptionPane.showMessageDialog(null,
+        err.getMessage() );}
+    }//GEN-LAST:event_editButtonMouseClicked
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+
+    }//GEN-LAST:event_editButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -356,8 +421,9 @@ public static JTable tableClii;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acessButton;
-    private javax.swing.JButton btnnovo;
-    private javax.swing.JButton buttonConfirm1;
+    private javax.swing.JButton buscarButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JButton excluirButton;
     private javax.swing.JComboBox<String> idNivel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

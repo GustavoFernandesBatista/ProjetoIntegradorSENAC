@@ -5,6 +5,7 @@
 package view;
 
 import controller.EnterUserDao;
+import controller.UsuarioDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -22,8 +23,36 @@ public class EnterUi extends javax.swing.JFrame {
 
 
     public EnterUi() {
-        initComponents();
+        try {
+            initComponents();
+            atualizarTabela();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(FormUi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+     public final void atualizarTabela() throws SQLException {
+       UsuarioDao u1 = new UsuarioDao();
+       ResultSet resultSet = u1.obterEntradas();
+       
+    DefaultTableModel model = (DefaultTableModel) tableCli.getModel();
+    
+        while (resultSet.next()) {
+            // Recupere os dados do resultado
+            String nome = resultSet.getString("nome");
+            String cpf = resultSet.getString("cpf");
+            String horarioEntrada = resultSet.getString("horarioEntrada");
+            String horarioSaida = resultSet.getString("horarioSaida");
+
+            // Crie um array com os dados
+            Object[] rowData = {nome, cpf, horarioEntrada, horarioSaida};
+
+            // Adicione a nova linha ao modelo de dados da tabela
+            model.addRow(rowData);
+        }
+
+    
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,9 +89,14 @@ public class EnterUi extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Horario de entrada", "Horario de saida"
+                "CPF", "Nome", "Horario de entrada", "Horario de saida"
             }
         ));
+        tableCli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCliMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableCli);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -162,29 +196,37 @@ public class EnterUi extends javax.swing.JFrame {
 
     private void buttonAcessoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAcessoMouseClicked
   DefaultTableModel MdlTableCli = (DefaultTableModel) this.tableCli.getModel();
-        Object[] linhas = {this.textCpf.getText(),
-                           this.textNome.getText(),
-                           this.textEntrada.getText(),
+        Object[] linhas = {this.textNome.getText(),
+                           this.textCpf.getText(),
                            this.textEntrada.getText(),
                            this.textSaida.getText()};
         MdlTableCli.addRow(linhas);
 
         Enter Lu = new Enter();
-        Lu.setCpf(this.textCpf.getText());
         Lu.setNome(this.textNome.getText());
+        Lu.setCpf(this.textCpf.getText());
         Lu.setEntradaUsu(this.textEntrada.getText());
         Lu.setSaidaUsu(this.textSaida.getText());
 
         EnterUserDao u1 = new EnterUserDao();
         u1.incluir(Lu);
         
-        this.textCpf.setText("");
         this.textNome.setText("");
+        this.textCpf.setText("");
         this.textEntrada.setText("");
         this.textSaida.setText("");
     }//GEN-LAST:event_buttonAcessoMouseClicked
+        private void limparCampos() {
+            this.textNome.setText("");
+            this.textCpf.setText("");
+            this.textEntrada.setText("");
+            this.textSaida.setText("");
+            
+        }
+    private void tableCliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCliMouseClicked
+       
+    }//GEN-LAST:event_tableCliMouseClicked
 
- 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -216,6 +258,7 @@ public class EnterUi extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAcesso;
