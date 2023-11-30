@@ -39,8 +39,21 @@ public void criarBanco () {
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Erro ao criar table Nivel!\n" + err.getMessage());
         }
-
         
+        sql = " CREATE TABLE IF NOT EXISTS ENTRADAS ("
+                + "cpf varchar (50) not null, "
+                + "nome varchar(50) not null, "
+                + "horarioEntrada varchar(50) not null, "
+                + "horarioSaida varchar(50) not null,"
+                + "primary key (cpf))";
+try{
+            PreparedStatement ps = mycon.prepareStatement(sql);
+            ps.execute();
+            ps.close();
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Erro ao criar tabela Entradas \n" + err.getMessage());
+        }
+
 sql = " CREATE TABLE IF NOT EXISTS USUARIOS ("
                 + "cpf varchar (50) not null, "
                 + "nome varchar(50) not null, "
